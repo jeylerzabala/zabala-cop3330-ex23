@@ -66,5 +66,60 @@ These are powerful ways to solve complex problems that are based on rules and fa
 Identify a rules engine for your programming language and use it to solve this problem
 */
 
+import java.util.Scanner;
+
 public class App {
+    public static void main(String[] args) {
+
+        Scanner in = new Scanner(System.in);
+        System.out.print("Is the car silent when you turn the key? ");
+        String silent = in.nextLine();
+
+        if (silent.equals("y")) {
+            System.out.print("Are the battery terminals corroded? ");
+            String batteryCorroded = in.nextLine();
+            if (batteryCorroded.equals("y")) {
+                System.out.print("Clean terminals and try starting again. ");
+                System.exit(0);
+            } else {
+                System.out.print("Replace cables and try again. ");
+                System.exit(0);
+            }
+        } else {
+            System.out.print("Does the car make a slicking noise? ");
+            String slickingNoise = in.nextLine();
+            if (slickingNoise.equals("y")) {
+                System.out.print("Replace the battery. ");
+                System.exit(0);
+            }
+            else {
+                System.out.print("Does the car crank up but fail to start? ");
+                String crankFail = in.nextLine();
+                if (crankFail.equals("y")) {
+                    System.out.println("Check spark plug connections.");
+                    System.exit(0);
+                }
+                else {
+                    System.out.print("Does the engine start and then die? ");
+                    String engineStartDie = in.nextLine();
+                    if (engineStartDie.equals("y")) {
+                        System.out.println("Does you car have fuel injection?");
+                        String fuelInjection = in.nextLine();
+                        if(fuelInjection.equals("y")) {
+                            System.out.println("Get it in for service.");
+                            System.exit(0);
+                        }
+                        else {
+                            System.out.println("Check to ensure the choke is opening and closing.");
+                            System.exit(0);
+                        }
+                    }
+                    else {
+                        System.out.print("This should not be possible. ");
+                        System.exit(0);
+                    }
+                }
+            }
+        }
+    }
 }
